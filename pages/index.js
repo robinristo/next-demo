@@ -14,12 +14,12 @@ export default function Home() {
       </header>
       <div id="wrapper" style={{display: "flex"}}>
 
-          <aside style={{ display: 'inline-block', backgroundColor: "#f2f2f2", height: "100vh", width: "10vw" }}>
-            <h2 class="largetext" >Sidebar</h2>
-            <ul class="ulbulletlist">
-              <li><a href="TheButton">The Button</a></li>
+          <div style={{ display: "inline-block", backgroundColor: "#f2f2f2", height: "100vh", width: "10vw" }}>
+            <h2 class="largetext">Apps:</h2>
+            <ul class="largetext">
+              <li><a href="TheButton">1. The Button</a></li>
             </ul>
-          </aside>
+          </div>
 
 
           <main class="largetext" style={{width: "80vw", margin: "2%"}}>
