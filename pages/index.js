@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 export default function Home() {
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [buttonSize, setButtonSize] = useState({ width: 100, height: 50 });
   const [bgColor, setbgColor] = useState(0);
   const [buttonTextIndex, setButtonTextIndex] = useState(1);
@@ -26,6 +27,7 @@ export default function Home() {
   const [buttonText, setButtonText] = useState(ClickMeList[0]);
   const [shouldShake, setShouldShake] = useState(false);
   
+  
 
   // useEffect(() => { 
   //   //setButtonSize({ width: window.innerWidth / 10, height: window.innerHeight / 20 });
@@ -37,7 +39,11 @@ export default function Home() {
   // }, []);
 
   useEffect(() => {
-    document.body.style.backgroundColor = `rgba(0,0,0,${bgColor})`;
+    if (prefersDarkMode) {
+      document.body.style.backgroundColor = `rgba(255,255,255,${bgColor})`;
+    } else {
+      document.body.style.backgroundColor = `rgba(0,0,0,${bgColor})`;
+    };
   }, [bgColor]);
 
   useEffect(() => {
@@ -51,7 +57,10 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setbgColor((bgColor) => Math.max(bgColor - 0.01, 0));
+      setbgColor((bgColor) => {
+        const color = Math.max(bgColor - 0.01, 0);
+        return prefersDarkMode ? 1 - color : color;
+      });
     }, 100);
     return () => clearInterval(interval);
   }, []);
@@ -73,7 +82,11 @@ export default function Home() {
   };
 
   const handleButtonClick = () => {
-    setbgColor(bgColor > 1 ? bgColor : bgColor + 0.1);
+    if (!prefersDarkMode) {
+      setbgColor(bgColor > 1 ? bgColor : bgColor + 0.1);
+    } else {
+      setbgColor(bgColor < 0 ? bgColor : 1 - (bgColor + 0.1));
+    };
     setButtonTextIndex((buttonTextIndex + 1) % ClickMeList.length);
     setButtonText(ClickMeList[buttonTextIndex]);
     setShouldShake(true);
