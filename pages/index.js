@@ -61,7 +61,7 @@ export default function Home() {
       setbgColor((bgColor) => {
         return prefersDarkMode ? Math.min(1, bgColor + 0.01) : Math.max(0, bgColor - 0.01);
       });
-    }, 200);
+    }, 150);
     return () => clearInterval(interval);
   }, []);
 
