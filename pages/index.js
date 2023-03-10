@@ -59,7 +59,7 @@ export default function Home() {
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const interval = setInterval(() => {
       setbgColor((bgColor) => {
-        const color = Math.max(bgColor - 0.01, 0);
+        const color = Math.max(0, bgColor - 0.01);
         return prefersDarkMode ? 1 - color : color;
       });
     }, 100);
