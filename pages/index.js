@@ -8,7 +8,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 export default function Home() {
-  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [buttonSize, setButtonSize] = useState({ width: 100, height: 50 });
   const [bgColor, setbgColor] = useState(0);
   const [buttonTextIndex, setButtonTextIndex] = useState(1);
@@ -39,6 +38,7 @@ export default function Home() {
   // }, []);
 
   useEffect(() => {
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (prefersDarkMode) {
       document.body.style.backgroundColor = `rgba(255,255,255,${bgColor})`;
     } else {
@@ -56,6 +56,7 @@ export default function Home() {
   }, [shouldShake]);
 
   useEffect(() => {
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const interval = setInterval(() => {
       setbgColor((bgColor) => {
         const color = Math.max(bgColor - 0.01, 0);
@@ -82,6 +83,7 @@ export default function Home() {
   };
 
   const handleButtonClick = () => {
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (!prefersDarkMode) {
       setbgColor(bgColor > 1 ? bgColor : bgColor + 0.1);
     } else {
