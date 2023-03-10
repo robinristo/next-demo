@@ -59,8 +59,7 @@ export default function Home() {
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const interval = setInterval(() => {
       setbgColor((bgColor) => {
-        const color = Math.max(0, bgColor - 0.01);
-        return prefersDarkMode ? 1 - color : color;
+        return prefersDarkMode ? Math.min(1, bgColor + 0.01) : Math.max(0, bgColor - 0.01);
       });
     }, 100);
     return () => clearInterval(interval);
@@ -87,7 +86,7 @@ export default function Home() {
     if (!prefersDarkMode) {
       setbgColor(bgColor > 1 ? bgColor : bgColor + 0.1);
     } else {
-      setbgColor(bgColor < 0 ? bgColor : 1 - (bgColor + 0.1));
+      setbgColor(bgColor < 0 ? bgColor : bgColor - 0.1);
     };
     setButtonTextIndex((buttonTextIndex + 1) % ClickMeList.length);
     setButtonText(ClickMeList[buttonTextIndex]);
