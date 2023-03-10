@@ -44,7 +44,7 @@ export default function Home() {
     if (shouldShake) {
       const timeoutId = setTimeout(() => {
         setShouldShake(false);
-      }, 150);
+      }, 300);
       return () => clearTimeout(timeoutId);
     }
   }, [shouldShake]);
