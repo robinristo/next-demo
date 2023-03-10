@@ -83,6 +83,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: #8a8a8a;
 }
 
 body {
@@ -122,4 +123,20 @@ a {
 .shake {
   animation-name: shake;
   animation-duration: 0.5s;
+}
+
+.largetext {
+  font-size: 1.5em;
+
+}
+
+.blog {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5%;
+  background-color: #f2f2f2;
+}
+
+.ulbulletlist {
+  list-style-type: square;
 }
