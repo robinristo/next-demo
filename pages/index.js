@@ -40,7 +40,7 @@ export default function Home() {
   useEffect(() => {
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (prefersDarkMode) {
-      document.body.style.backgroundColor = `rgba(255,255,255,${bgColor})`;
+      document.body.style.backgroundColor = `rgba(0,0,0,${bgColor})`;
     } else {
       document.body.style.backgroundColor = `rgba(0,0,0,${bgColor})`;
     };
