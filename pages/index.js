@@ -17,12 +17,8 @@ export default function Home() {
   const containerRef = useRef(null);
   const [scrollLeft, setScrollLeft] = useState(0);
   const links = [];
-  links.push(new postsClass('The Button', 'It does stuff', true,'TheButton'));
-  links.push(new postsClass('Home', '', true,'index'));
-  links.push(new postsClass('Home', '', true,'index'));
-  links.push(new postsClass('Home', '', true,'index'));
-  links.push(new postsClass('Home', '', true,'index'));
-  links.push(new postsClass('Home', '', true,'index'));
+  links.push(new postsClass('The Button', 'It does stuff', true, 'TheButton'));
+
   const posts = [];
   for (let post of links) {
     posts.push(post);
@@ -63,6 +59,9 @@ export default function Home() {
           </div> */}
           
           <div className="carousel-container" ref={containerRef}>
+          <button className="carousel-nav carousel-nav-left" onClick={handleScrollLeft}>
+              &#8249;
+            </button>
             {posts.map(post => (
               <div className="carousel-item" key={post.id}>
                 <h2>{post.title}</h2>
@@ -70,9 +69,6 @@ export default function Home() {
                 <a href={post.addbutton[0]}>{post.addbutton[1]}</a>
               </div>
             ))}
-            <button className="carousel-nav carousel-nav-left" onClick={handleScrollLeft}>
-              &#8249;
-            </button>
             <button className="carousel-nav carousel-nav-right" onClick={handleScrollRight}>
               &#8250;
             </button>
