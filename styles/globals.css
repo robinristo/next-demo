@@ -131,7 +131,7 @@ a {
 }
 
 .banner {
-  height: 20vh;
+  height: 15vh;
   background-color: black;
 }
 
@@ -196,12 +196,21 @@ a {
 }
 
 .blog {
-  width: 90%;
+  width: auto;
+  height: 100vh;
   background-color: #2f3742;
   float: float;
   margin-left: 2%;
   margin-right: 2%;
   padding: 5%;
+  overflow-y: hidden;
+  border: 2px solid black;
+	border-radius: 10px;
+}
+
+.blog__scrollbar {
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .blog__title {
